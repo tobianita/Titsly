@@ -1,0 +1,28 @@
+version: "3.9"
+
+
+services:
+  db:
+     image: postgres:15
+     container_name: titsly-db
+     environment:
+       POSTGRES_USER: titsly
+       POSTGRES_PASSWORD: titslypass
+       POSTGRES_DB: titslydb
+     ports:
+       - "5432:5432"
+     volumes:
+       - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: titsly-app
+    ports:
+      - 5000:5000
+    environment:
+      DATABASE_URL: postgresql://titsly:titslypass@db:5432/titslydb
+    depends_on:
+      - db 
+
+volumes:
+  postgres_data:
