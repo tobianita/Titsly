@@ -60,4 +60,4 @@ def get_link(tinyurl):
 if __name__ == "__main__":
     db.create_connection()
     # db.drop_table()
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
