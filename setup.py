@@ -4,7 +4,7 @@ except ImportError:
   from distutils.core import setup
 
 config = {
-  'name' : 'Titsly'
+  'name' : 'Titsly',
   description='Titsly is a url shortening python server',
   'author'='Shadrach Tayo',
   'url'='titsly.com',
