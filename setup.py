@@ -5,7 +5,7 @@ except ImportError:
 
 config = {
   'name' : 'Titsly'
-  'description'='Titsly is a url shortening python server',
+  description='Titsly is a url shortening python server',
   'author'='Shadrach Tayo',
   'url'='titsly.com',
   'author_email'='shadrachtemitayo@gmail.com',
