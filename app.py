@@ -5,7 +5,8 @@ app = Flask(__name__, instance_relative_config=True)
 # app.config.from_pyfile('config.py')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET']) 
+
 def index():
 
     # tips_to_return = db.get_tips()
@@ -43,6 +44,10 @@ def create_tit():
         json_response = {
             'message': '{} is already in use, try another one'.format(data['tinyurl']), 'error': True}
         return jsonify(json_response)
+    
+@app.route('/health', methods=["GET"])
+def health():
+    return jsonify(status="OK"), 200
 
 
 @app.route('/<tinyurl>', methods=['GET'])
@@ -61,3 +66,6 @@ if __name__ == "__main__":
     db.create_connection()
     # db.drop_table()
     app.run(host="0.0.0.0", port=5000)
+
+
+
