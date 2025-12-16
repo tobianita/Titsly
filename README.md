@@ -1,10 +1,20 @@
-## Titsly – DevOps Portfolio Project
+## Titsly – URL Shortener (Dockerized)
 
-### Stack
-- Python (Flask)
-- PostgreSQL
-- Docker & Docker Compose
+### Architecture
+- Flask web app
+- PostgreSQL database
+- Docker Compose orchestration
 
-### How to run
-```bash
+### Features
+- Health checks for web service
+- Service dependency management
+- Persistent database storage
+
+### How to Run
 docker compose up --build
+
+### DevOps Concepts
+- Containerization
+- Healthchecks
+- Restart policies
+- Service orchestration
