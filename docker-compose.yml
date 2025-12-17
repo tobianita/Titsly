@@ -13,7 +13,13 @@ services:
        - "5432:5432"
      volumes:
        - postgres_data:/var/lib/postgresql/data
-     
+     healthcheck:
+       test: ["CMD-SHELL", "pg_isready -U postgres -d titsly"]
+       interval: 10s
+       timeout: 5s
+       retries: 5
+
+      
          
 
   web:
@@ -24,12 +30,14 @@ services:
     environment:
       DATABASE_URL: postgresql://titsly:titslypass@db:5432/titslydb
     depends_on:
-      - db 
+        db:
+          condition: service_healthy
+    restart: 'unless-stopped'  
     healthcheck:
         test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
         interval: 30s
         timeout: 10s
-        retries: 3
+        retries: 5
 
 volumes:
   postgres_data:
