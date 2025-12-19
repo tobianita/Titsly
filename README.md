@@ -130,7 +130,7 @@ Persistent storage is handled using Docker volumes.
 ├── Dockerfile
 ├── docker-compose.yml
 ├── db/
-│   └── init.sql
+│  
 └── README.md
 ```
 
